@@ -3,7 +3,6 @@
 // Persistent Storage Variable
 monogatari.storage ({
 	player: {
-		name: '',
-		gender: ''
+		name: ''
 	}
 });

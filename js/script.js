@@ -70,12 +70,13 @@ monogatari.assets ('images', {
 monogatari.assets ('scenes', {
 	'house': 'house.jpeg',
 	'school': 'school.jpg',
+	'beach': 'beach.jpg',
 });
 
 
 // Define the Characters
 monogatari.characters ({
-	'y': {
+	'yui': {
 		name: 'Yui',
 		color: '#5bcaff'
 	},
@@ -87,6 +88,10 @@ monogatari.characters ({
 		name: 'Mother',
 		color: '#d81b60'
 	},
+	'reporter':{
+		name: 'XSe Reporter',
+		color: '#ffeb3b'
+	}
 });
 
 monogatari.script ({
@@ -123,11 +128,30 @@ monogatari.script ({
 			}
 		},
 		'show scene school with fadeIn',
-		'Finall ',
+		'yui Yehey! Finally we have finished High School. Are you excited to go to College?',
+		{'Choice': {
+			'Yes': {
+				'Text': 'Yes',
+				'Do': 'yui Nice'
+			},
+			'No': {
+				'Text': 'No',
+				'Do':'yui No'
+			}
+		}},
 		'show scene house with fadeIn',
+		//Show sad expression for dad
 		'dad Hi {{player.name}}, We have something to tell you!',
 		'player What is it dad?',
+		//Show expression looking at mom
 		'dad Honey, Can you tell it to {{player.name}}?',
-		'mom {{player.name}} we cannot afford to send you to college.'
+		//Show sad expression for mom
+		'mom {{player.name}} we cannot afford to send you to college.',
+		//Show Expression sad
+		'{{player.name}} left the house disappointed and go to the beach.',
+		'show scene beach with fadeIn',
+		'While standing in front of the store beside the beach...',
+		'reporter According to the 2020 survey the most trending job that pays more than 100,000...',
+		'reporter a month are jobs in Information Technology'
 	]
 });
