@@ -87,6 +87,7 @@ monogatari.characters ({
 		name: 'Mother',
 		color: '#d81b60'
 	}
+
 });
 
 monogatari.script ({
@@ -105,6 +106,12 @@ monogatari.script ({
 							name: input
 						}
 					});
+					this.characters ({
+						player: {
+							name: input,
+							color:'#decaff'
+						}
+					});
 					return true;
 				},
 				'Revert': function () {
@@ -119,6 +126,7 @@ monogatari.script ({
 		},
 		'show scene house with fadeIn',
 		'f Hi {{player.name}}, We have something to tell you!',
+		'player What is it mom?',
 		'm {{player.name}} we cannot afford to send you to college.'
 	]
 });
