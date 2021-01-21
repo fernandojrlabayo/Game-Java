@@ -68,6 +68,8 @@ monogatari.assets ('images', {
 
 // Define the backgrounds for each scene.
 monogatari.assets ('scenes', {
+	'house': 'house.jpeg',
+	'school': 'school.jpg',
 });
 
 
@@ -77,20 +79,19 @@ monogatari.characters ({
 		name: 'Yui',
 		color: '#5bcaff'
 	},
-	'f':{
+	'dad':{
 		name: 'Father',
 		color: '#1e88e5'
 	},
-	'm':{
+	'mom':{
 		name: 'Mother',
 		color: '#d81b60'
-	}
+	},
 });
 
 monogatari.script ({
 	// The game starts here.
 	'Start': [
-		'show notification Welcome',
 		{
 			'Input': {
 				'Text': 'What is your name?',
@@ -103,10 +104,10 @@ monogatari.script ({
 							name: input
 						}
 					});
-					this.characters({
+					this.characters ({
 						player: {
 							name: input,
-							color: '#decaff'
+							color:'#decaff'
 						}
 					});
 					return true;
@@ -121,10 +122,12 @@ monogatari.script ({
 				'Warning': 'You must enter a name!'
 			}
 		},
+		'show scene school with fadeIn',
+		'Finall ',
 		'show scene house with fadeIn',
-		'f Hi {{player.name}}, We have something to tell you!',
+		'dad Hi {{player.name}}, We have something to tell you!',
 		'player What is it dad?',
-		'm {{player.name}} we cannot afford to send you to college.',
-		'player What? It is unfair!'
+		'dad Honey, Can you tell it to {{player.name}}?',
+		'mom {{player.name}} we cannot afford to send you to college.'
 	]
 });
