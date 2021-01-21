@@ -82,6 +82,7 @@ monogatari.characters ({
 	'f':{
 		name: 'Father',
 		color: '#1e88e5'
+		
 	},
 	'm':{
 		name: 'Mother',
@@ -119,6 +120,7 @@ monogatari.script ({
 		},
 		'show scene house with fadeIn',
 		'f Hi {{player.name}}, We have something to tell you!',
+		'show character f normal at center with fadeIn',
 		'm {{player.name}} we cannot afford to send you to college.'
 	]
 });
