@@ -59,7 +59,6 @@ monogatari.assets ('sounds', {
 
 // Define the videos used in the game.
 monogatari.assets ('videos', {
-
 });
 
 // Define the images used in the game.
@@ -69,7 +68,6 @@ monogatari.assets ('images', {
 
 // Define the backgrounds for each scene.
 monogatari.assets ('scenes', {
-	'house': 'house.jpeg',
 });
 
 
@@ -105,6 +103,12 @@ monogatari.script ({
 							name: input
 						}
 					});
+					this.characters({
+						player: {
+							name: input,
+							color: '#decaff'
+						}
+					});
 					return true;
 				},
 				'Revert': function () {
@@ -119,6 +123,8 @@ monogatari.script ({
 		},
 		'show scene house with fadeIn',
 		'f Hi {{player.name}}, We have something to tell you!',
-		'm {{player.name}} we cannot afford to send you to college.'
+		'player What is it dad?',
+		'm {{player.name}} we cannot afford to send you to college.',
+		'player What? It is unfair!'
 	]
 });
