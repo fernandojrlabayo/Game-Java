@@ -91,6 +91,10 @@ monogatari.characters ({
 	'reporter':{
 		name: 'XSe Reporter',
 		color: '#ffeb3b'
+	},
+	'player':{
+		name: '{{player.name}}',
+		color: '#decaff'
 	}
 });
 
@@ -107,12 +111,6 @@ monogatari.script ({
 					this.storage ({
 						player: {
 							name: input
-						}
-					});
-					this.characters ({
-						player: {
-							name: input,
-							color:'#decaff'
 						}
 					});
 					return true;
@@ -151,7 +149,7 @@ monogatari.script ({
 		'{{player.name}} left the house disappointed and go to the beach.',
 		'show scene beach with fadeIn',
 		'While standing in front of the store beside the beach...',
-		'reporter According to the 2020 survey the most trending job that pays more than 100,000...',
-		'reporter a month are jobs in Information Technology'
+		'reporter According to the 2020 survey the most trending job that pays more than 100,000 a month are...',
+		'reporter jobs in Information Technology most notably the java developers.'
 	]
 });
