@@ -71,7 +71,9 @@ monogatari.assets ('scenes', {
 	'house': 'oldhouse.jpg',
 	'school': 'school.jpg',
 	'beach': 'beach.jpg',
-	'leaving': 'leaving.gif'
+	'leaving': 'leaving.gif',
+	'street': 'street.jpg',
+	'reporter':'r-street.jpg'
 });
 
 
@@ -79,7 +81,13 @@ monogatari.assets ('scenes', {
 monogatari.characters ({
 	'sidekick': {
 		name: 'Saitama',
-		color: '#5bcaff'
+		color: '#5bcaff',
+		expressions:{
+			normal:'saitama.png'
+		},
+		sprites:{
+			normal:'saitama.png'
+		}
 	},
 	'dad':{
 		name: 'Father',
@@ -103,21 +111,26 @@ monogatari.characters ({
 	},
 	'reporter':{
 		name: 'XSe Reporter',
-		color: '#ffeb3b'
+		color: '#ffeb3b',
+		expressions:{
+			normal:'r-solo.png'
+		},
+		sprites:{
+			normal:'r-solo.png'
+		}
 	},
 	'p':{
 		name: '{{player.name}}',
 		color: '#decaff',
 		expressions:{
 			sad:'p-sad.png',
-			normal:'p-normal.png',
-			happy:'p-happy.png'
+			normal:'p-norm.png',
+			happy:'p-hppy.png'
 		},
 		sprites:{
 			sad:'p-sad.png',
-			
-			normal:'p-normal.png',
-			happy:'p-happy.png'
+			normal:'p-norm.png',
+			happy:'p-hppy.png'
 		}
 	},
 	's1':{
@@ -159,14 +172,16 @@ monogatari.script ({
 		},
 		//'jump intro'
 		//'jump houseScene'
-		//'jump beachScene'
-		'jump StudentScene'
+		//'jump leavingScene'
+		//'jump StudentScene'
+		'jump houseScene2'
 	],
 	'intro':[
 		//Introduction
 		'show scene school with fadeIn',
 		'Graduation ceremony has just ended',
 		'Your friend Saitama saw you and walks toward your direction',
+		'show character sidekick normal at center with fadeIn',
 		'sidekick Yeah! Finally we have finished High School. {{player.name}} are you excited to go to College?',
 		{'Choice': {
 			'Yes': {
@@ -180,13 +195,17 @@ monogatari.script ({
 		}}
 	],
 	'sidekickSceneYes': [
+		'show character sidekick normal at center with fadeIn',
 		'sidekick Nice, hopefully we can enroll in the same University. Let us go home now.',
+		'hide character sidekick with fadeOut',
 		'show character p normal at center with fadeIn',
 		'p:normal Yes I am excited to see my parents',
 		'jump houseScene'
 	],
 	'sidekickSceneNo': [
+		'show character sidekick normal at center with fadeIn',
 		'sidekick What? Hope you reconsider your decision. College is very important so that we will prepared for jobs in the future. Let us go home now.',
+		'hide character sidekick with fadeOut',
 		'show character p normal at center with fadeIn',
 		'p Yes I am excited to see my parents',
 		'jump houseScene'
@@ -199,35 +218,39 @@ monogatari.script ({
 		'p:normal Why are you sad?',
 		'hide character p with fadeOut',
 		'show character dad sad at center with fadeIn',
-		'dad:sad Hi {{player.name}}, We have something to tell you!',
+		'dad Hi {{player.name}}, We have something to tell you!',
 		'hide character dad with fadeOut',
 		'show character p normal at center with fadeIn',
 		'p What is it dad?',
 		'hide character p with fadeOut',
 		'show character dad sad at center with fadeIn',
-		'dad:sad Honey, Can you tell it to {{player.name}}?',
+		'dad Honey, Can you tell it to {{player.name}}?',
 		'hide character dad with fadeOut',
 		'show character mom sad at center with fadeIn',
-		'mom:sad {{player.name}} we cannot afford to send you to college.',
+		'mom {{player.name}} we cannot afford to send you to college.',
 		'hide character mom with fadeOut',
-		'show character p sad at center with fadeIn',
-		'p:sad What? I cannot believed it!',
+		'show character p normal at center with fadeIn',
+		'p What? I cannot believed it!',
 		'hide character p with fadeOut',
 		'show character mom sad at center with fadeIn',
-		'mom:sad Wait {{player.name}}! Where are you going?',
+		'mom Wait {{player.name}}! Where are you going?',
 		'hide character mom with fadeOut',
 		'jump leavingScene'
 	],
 	'leavingScene':[
 		'show scene leaving with fadeIn',
 		'{{player.name}} left the house disappointed and go to the beach.',
-		'jump beachScene'
+		'jump streetScene'
 	],
-	'beachScene':[
-		//Beach scene
-		'show scene beach with fadeIn',
-		'While standing in front of the store beside the sea shore',
-		'reporter Good Morning! This is XSe news channel 69. According to the 2020 survey the most trending job that pays more than 100,000 a month are jobs in Information Technology most notably the java developers.',
+	'streetScene':[
+		'show scene street with fadeIn',
+		'While walking down the street you heard a news.',
+		'jump reporterScene'
+	],
+	'reporterScene':[
+		//reporter scene
+		'show scene reporter with fadeIn',
+		'reporter:normal Good Morning! This is XSe news channel 69. According to the 2020 survey the most trending job that pays more than 100,000 a month are jobs in Information Technology most notably the java developers.',
 		'p Saitama I hear a news about a job that pays a lot of money!',
 		'sidekick Really? What is it?',
 		'p Java Developer!',
@@ -265,14 +288,35 @@ monogatari.script ({
 		's2 By the way, we are preparing for the entrance exam for a German University',
 		's1 It is called Ulaps University, Here take this pamphlet if you are interested.',
 		's1 They will offer scholarship for people who will get a perfect score in the exam',
-		's2 I doubt that you could make it but try it you might get a miracle hahaha'
+		's2 I doubt that you could make it but try it you might get a miracle hahaha',
+		'jump houseScene2'
 	],
 	'pamphletScene': [
 		'p Ow they dropped a pamphlet, I will take it.',
-		'{{player.name}} went to {sidekick.name}}',
+		'{{player.name}} went to Saitama',
 		'p hey I found a pamphlet about Ulaps University!',
 		'sidekick Okay let me see!',
-		'{{sidekick.name}} checks the pamphlet',
-		'sidekick So they are offering Java Lessons'
+		'Saitama checks the pamphlet',
+		'sidekick Okay, they are offering Java Lessons',
+		'sidekick So you can now create Java the caveman if you went to this school right?',
+		'p Yes! Wait no, not Java the caveman!',
+		'sidekick Hahahaha Just kidding I will also go maybe they can also teach how to make a snake like python',
+		'jump houseScene2'
+	],
+	'houseScene2':[
+		'Monday morning at your house',
+		'You just woke up and quickly take a bath and get some clothes to go outside',
+		'p Alright I will go to Ulaps University today and inquire',
+		'mom Good Morning {{player.name}}! Where are you going?',
+		'p I will go to Ulaps University to inquire.',
+		'mom But we do not have the money to support you',
+		'p It is okay mom they are offering a scholarship to the examinee who will get a perfect score',
+		'mom Wow! That is good but can you make it?',
+		'p I will try it mom!',
+		'mom Okay, Goodluck {{player.name}}',
+		'jump ulapsScene'
+	],
+	'ulapsScene':[
+		
 	]
 });
