@@ -139,7 +139,6 @@ monogatari.script ({
 			}
 		}},
 		'show scene house with fadeIn',
-<<<<<<< HEAD
 		//Show sad expression for dad
 		'dad Hi {{player.name}}, We have something to tell you!',
 		'player What is it dad?',
@@ -153,10 +152,5 @@ monogatari.script ({
 		'While standing in front of the store beside the beach...',
 		'reporter According to the 2020 survey the most trending job that pays more than 100,000 a month are...',
 		'reporter jobs in Information Technology most notably the java developers.'
-=======
-		'f Hi {{player.name}}, We have something to tell you!',
-		'show character f normal at center with fadeIn',
-		'm {{player.name}} we cannot afford to send you to college.'
->>>>>>> 8182a99ac04fa3cae487c11604e49374bea33454
 	]
 });
