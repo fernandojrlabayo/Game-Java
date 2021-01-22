@@ -73,14 +73,17 @@ monogatari.assets ('scenes', {
 	'beach': 'beach.jpg',
 	'leaving': 'leaving.gif',
 	'street': 'street.jpg',
-	'reporter':'r-street.jpg'
+	'reporter':'r-street.jpg',
+	's-home':'s-home.jpg',
+	'sidekickhouse':'sidekickhouse.jpg',
+	'university':'university.jpeg'
 });
 
 
 // Define the Characters
 monogatari.characters ({
 	'sidekick': {
-		name: 'Saitama',
+		name: 'Joe',
 		color: '#5bcaff',
 		expressions:{
 			normal:'saitama.png'
@@ -103,10 +106,12 @@ monogatari.characters ({
 		name: 'Mother',
 		color: '#d81b60',
 		expressions:{
-			sad:'m-sad.png'
+			sad:'m-sad.png',
+			normal:'m.png'
 		},
 		sprites:{
-			sad:'m-sad.png'
+			sad:'m-sad.png',
+			normal:'m.png'
 		}
 	},
 	'reporter':{
@@ -135,11 +140,29 @@ monogatari.characters ({
 	},
 	's1':{
 		name: 'Student 1',
-		color: '#d81b60'
+		color: '#d81b60',
+		expressions:{
+			normal:'s1.png',
+			duo:'s1-2.png'
+		},
+		sprites:{
+			normal:'s1.png',
+			duo:'s1-2.png'
+		}
 	},
 	's2':{
 		name: 'Student 2',
-		color: '#1e88e5'
+		color: '#1e88e5',
+		expressions:{
+			normal:'s2.png'
+		},
+		sprites:{
+			normal:'s2.png'
+		}
+	},
+	'nanderf':{
+		name:'Mr. Nanderf',
+		color:'#1e88e5'
 	}
 });
 
@@ -175,14 +198,19 @@ monogatari.script ({
 		//'jump leavingScene'
 		//'jump StudentScene'
 		//'jump houseScene2'
+		//'jump StudentSceneYes'
+		//'jump houseScene2'
 	],
 	'intro':[
 		//Introduction
 		'show scene school with fadeIn',
 		'Graduation ceremony has just ended',
-		'Your friend Saitama saw you and walks toward your direction',
+		'Your friend Joe saw you and walks toward your direction',
+		'jump sidekickIntro'
+	],
+	'sidekickIntro':[
 		'show character sidekick normal at center with fadeIn',
-		'sidekick Yeah! Finally we have finished High School. {{player.name}} are you excited to go to College?',
+		'sidekick:normal Yeah! Finally we have finished High School. {{player.name}} are you excited to go to College?',
 		{'Choice': {
 			'Yes': {
 				'Text': 'Yes',
@@ -196,7 +224,7 @@ monogatari.script ({
 	],
 	'sidekickSceneYes': [
 		'show character sidekick normal at center with fadeIn',
-		'sidekick Nice, hopefully we can enroll in the same University. Let us go home now.',
+		'sidekick:normal Nice, hopefully we can enroll in the same University. Let us go home now.',
 		'hide character sidekick with fadeOut',
 		'show character p normal at center with fadeIn',
 		'p:normal Yes I am excited to see my parents',
@@ -204,42 +232,28 @@ monogatari.script ({
 	],
 	'sidekickSceneNo': [
 		'show character sidekick normal at center with fadeIn',
-		'sidekick What? Hope you reconsider your decision. College is very important so that we will prepared for jobs in the future. Let us go home now.',
+		'sidekick What? Hope you reconsider your decision. College is very important so that we will prepared for jobs in the future.',
 		'hide character sidekick with fadeOut',
-		'show character p normal at center with fadeIn',
-		'p Yes I am excited to see my parents',
-		'jump houseScene'
+		'jump sidekickIntro'
 	],
 	'houseScene':[
 		//House Scene
 		'show scene house with fadeIn',
 		'You went home, kissed your parents and noticed that they are sad.',
-		'show character p normal at center with fadeIn',
 		'p:normal Why are you sad?',
-		'hide character p with fadeOut',
-		'show character dad sad at center with fadeIn',
-		'dad Hi {{player.name}}, We have something to tell you!',
-		'hide character dad with fadeOut',
-		'show character p normal at center with fadeIn',
-		'p What is it dad?',
-		'hide character p with fadeOut',
-		'show character dad sad at center with fadeIn',
-		'dad Honey, Can you tell it to {{player.name}}?',
-		'hide character dad with fadeOut',
-		'show character mom sad at center with fadeIn',
-		'mom {{player.name}} we cannot afford to send you to college.',
-		'hide character mom with fadeOut',
-		'show character p normal at center with fadeIn',
-		'p What? I cannot believed it!',
-		'hide character p with fadeOut',
-		'show character mom sad at center with fadeIn',
-		'mom Wait {{player.name}}! Where are you going?',
-		'hide character mom with fadeOut',
+		'show character dad sad normal at center with fadeIn',
+		'dad:sad Hi {{player.name}}, We have something to tell you!',
+		'p:normal What is it dad?',
+		'dad:sad Honey, Can you tell it to {{player.name}}?',
+		'show character mom sad at right with fadeIn',
+		'mom:sad {{player.name}} we cannot afford to send you to college.',
+		'p:normal What? I cannot believed it!',
+		'mom:sad Wait {{player.name}}! Where are you going?',
 		'jump leavingScene'
 	],
 	'leavingScene':[
 		'show scene leaving with fadeIn',
-		'{{player.name}} left the house disappointed and go to the beach.',
+		'{{player.name}} left the house disappointed and go to the town.',
 		'jump streetScene'
 	],
 	'streetScene':[
@@ -251,24 +265,34 @@ monogatari.script ({
 		//reporter scene
 		'show scene reporter with fadeIn',
 		'reporter:normal Good Morning! This is XSe news channel 69. According to the 2020 survey the most trending job that pays more than 100,000 a month are jobs in Information Technology most notably the java developers.',
-		'p Saitama I hear a news about a job that pays a lot of money!',
-		'sidekick Really? What is it?',
-		'p Java Developer!',
-		'sidekick Java? You mean Java the Caveman? Sounds stupid to me.',
-		'p No! I am not talking about the cartoon. Why am I talking with a noob? You will never understand it hahaha.',
-		'sidekick Really? Can you explain it to me?',
-		'p Um um I do not understand it also.',
-		'sidekick Haha we are both noobs here',
-		'p Okay okay I will get more details about it',
-		'sidekick Good see you later noob hahahaha',
+		'p:normal Wow that is interesting I should tell it to Joe',
+		'jump sidekickHouseScene'
+	],
+	'sidekickHouseScene':[
+		'show scene sidekickhouse with fadeIn',
+		'show character p normal at right with fadeIn',
+		'p:normal Joe I hear a news about a job that pays a lot of money!',
+		'show character sidekick normal at center with fadeIn',
+		'sidekick:normal Really? What is it?',
+		'p:normal Java Developer!',
+		'sidekick:normal Java? You mean Java the Caveman? Sounds stupid to me.',
+		'p:normal No! I am not talking about the cartoon. Why am I talking with a noob? You will never understand it hahaha.',
+		'sidekick:normal Really? Can you explain it to me?',
+		'p:normal Um um I do not understand it also.',
+		'sidekick:normal Haha we are both noobs here',
+		'p:normal Okay okay I will get more details about it',
+		'sidekick:normal Good see you later noob hahahaha',
 		'jump StudentScene'
 	],
 	'StudentScene':[
 		//Student Scene
-		's1 I am excited to attend Ulaps University entrance exam! I am very confident that I will pass it',
-		's2 Same,I also here that they are training java developers and hiring them. Thanks to my parents I have good internet connection to study and review Java.',
-		's1 Come on let us play fortnite at your house today.',
-		's2 Sure let us play until midnight!',
+		'show scene s-home with fadeIn',
+		'show character s1 normal at center with fadeIn',
+		's1:normal I am excited to attend Ulaps University entrance exam! I am very confident that I will pass it',
+		'show character s2 normal at right with fadeIn',
+		's2:normal Same,I also here that they are training java developers and hiring them. Thanks to my parents I have good internet connection to study and review Java.',
+		's1:normal Come on let us play fortnite at your house today.',
+		's2:normal Sure let us play until midnight!',
 		{'Choice': {
 			'Dialog': 'Ask them about Ulaps University and Java?',
 			'Yes': {
@@ -282,41 +306,70 @@ monogatari.script ({
 		}}
 	],
 	'StudentSceneYes': [
-		'p Um hello? I heard that you are talking about Ulaps University what is it about?',
-		's1 Who are you? I do not talk to strangers',
-		's2 Hey dude do not be rude to the poor and less educated hahaha',
-		's2 By the way, we are preparing for the entrance exam for a German University',
-		's1 It is called Ulaps University, Here take this pamphlet if you are interested.',
-		's1 They will offer scholarship for people who will get a perfect score in the exam',
-		's2 I doubt that you could make it but try it you might get a miracle hahaha',
+		'show scene s-home with fadeIn',
+		'show character s1 duo at center with fadeIn',
+		'You slowly walk towards the 2 students',
+		'p:normal Um hello? I heard that you are talking about Ulaps University what is it about?',
+		's1:normal Who are you? I do not talk to strangers',
+		's2:normal Hey dude do not be rude to the poor and less educated hahaha',
+		's2:normal By the way, we are preparing for the entrance exam for a German University',
+		's1:normal It is called Ulaps University, Here take this pamphlet if you are interested.',
+		's1:normal They will offer scholarship for people who will get a perfect score in the exam',
+		's2:normal I doubt that you could make it but try it, you might get a miracle hahaha',
 		'jump houseScene2'
 	],
 	'pamphletScene': [
-		'p Ow they dropped a pamphlet, I will take it.',
-		'{{player.name}} went to Saitama',
-		'p hey I found a pamphlet about Ulaps University!',
-		'sidekick Okay let me see!',
-		'Saitama checks the pamphlet',
-		'sidekick Okay, they are offering Java Lessons',
-		'sidekick So you can now create Java the caveman if you went to this school right?',
-		'p Yes! Wait no, not Java the caveman!',
-		'sidekick Hahahaha Just kidding I will also go maybe they can also teach how to make a snake like python',
+		'show scene s-home with fadeIn',
+		'p:normal Ow they dropped a pamphlet, I will take it.',
+		'{{player.name}} went to Joe',
+		'jump sidekickHouseScene2'
+	],
+	'sidekickHouseScene2':[
+		'show scene sidekickhouse with fadeIn',
+		'show character p normal at center with fadeIn',
+		'p:normal Hey I found a pamphlet about Ulaps University!',
+		'show character sidekick normal at right with fadeIn',
+		'sidekick:normal Okay let me see!',
+		'Joe checks the pamphlet',
+		'sidekick:normal Okay, they are offering Java Lessons',
+		'sidekick:normal So you can now create Java the caveman if you went to this school right?',
+		'p:normal Yes! Wait no, not Java the caveman!',
+		'sidekick:normal Hahahaha Just kidding I will also go maybe they can also teach how to make a snake like python',
 		'jump houseScene2'
 	],
 	'houseScene2':[
+		'show scene house with fadeIn',
 		'Monday morning at your house',
 		'You just woke up and quickly take a bath and get some clothes to go outside',
-		'p Alright I will go to Ulaps University today and inquire',
-		'mom Good Morning {{player.name}}! Where are you going?',
-		'p I will go to Ulaps University to inquire.',
-		'mom But we do not have the money to support you',
-		'p It is okay mom they are offering a scholarship to the examinee who will get a perfect score',
-		'mom Wow! That is good but can you make it?',
-		'p I will try it mom!',
-		'mom Okay, Goodluck {{player.name}}',
+		'show character p normal with fadeIn',
+		'p:normal Alright I will go to Ulaps University today and inquire',
+		'hide character p with fadeOut',
+		'show character mom normal with fadeIn',
+		'mom:normal Good Morning {{player.name}}! Where are you going?',
+		'hide character mom with fadeOut',
+		'show character p normal with fadeIn',
+		'p:normal I will go to Ulaps University to inquire.',
+		'hide character p with fadeOut',
+		'show character mom normal with fadeIn',
+		'mom:normal But we do not have the money to support you',
+		'hide character mom with fadeOut',
+		'show character p normal with fadeIn',
+		'p:normal It is okay mom they are offering a scholarship to the examinee who will get a perfect score',
+		'hide character p wuth fadeOut',
+		'show character mom normal with fadeIn',
+		'mom:normal Wow! That is good but can you make it?',
+		'hide character mom with fadeOut',
+		'show character p normal with fadeOut',
+		'p:normal I will try it mom!',
+		'hide character p with fadeOut',
+		'show character p normal with fadeIn',
+		'mom:normal Okay, Goodluck {{player.name}}',
+		'hide character p with fadeOut',
 		'jump ulapsScene'
 	],
 	'ulapsScene':[
-		
+		'show scene university with fadeIn',
+		'You arrived at Ulaps University you try to find Saitama when you here someone getting the attention of everyone',
+		'nanderf Hello everyone! Welcome to Ulaps University! Please come here to get the reviewer for the entrance exam.'
 	]
 });
