@@ -170,11 +170,11 @@ monogatari.script ({
 				'Warning': 'You must enter a name!'
 			}
 		},
-		//'jump intro'
+		'jump intro'
 		//'jump houseScene'
 		//'jump leavingScene'
 		//'jump StudentScene'
-		'jump houseScene2'
+		//'jump houseScene2'
 	],
 	'intro':[
 		//Introduction
