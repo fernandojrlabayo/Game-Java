@@ -71,6 +71,7 @@ monogatari.assets ('scenes', {
 	'house': 'oldhouse.jpg',
 	'school': 'school.jpg',
 	'beach': 'beach.jpg',
+	'leaving': 'leaving.gif'
 });
 
 
@@ -97,7 +98,7 @@ monogatari.characters ({
 			sad:'m-sad.png'
 		},
 		sprites:{
-			sad:'mothersad.png'
+			sad:'m-sad.png'
 		}
 	},
 	'reporter':{
@@ -109,10 +110,14 @@ monogatari.characters ({
 		color: '#decaff',
 		expressions:{
 			sad:'p-sad.png',
-			normal:'normal.png'
+			normal:'p-normal.png',
+			happy:'p-happy.png'
 		},
 		sprites:{
-			sad:'p-sad.png'
+			sad:'p-sad.png',
+			
+			normal:'p-normal.png',
+			happy:'p-happy.png'
 		}
 	},
 	's1':{
@@ -152,7 +157,10 @@ monogatari.script ({
 				'Warning': 'You must enter a name!'
 			}
 		},
-		'jump intro'
+		//'jump intro'
+		//'jump houseScene'
+		//'jump beachScene'
+		'jump StudentScene'
 	],
 	'intro':[
 		//Introduction
@@ -173,11 +181,13 @@ monogatari.script ({
 	],
 	'sidekickSceneYes': [
 		'sidekick Nice, hopefully we can enroll in the same University. Let us go home now.',
-		'p Yes I am excited to see my parents',
+		'show character p normal at center with fadeIn',
+		'p:normal Yes I am excited to see my parents',
 		'jump houseScene'
 	],
 	'sidekickSceneNo': [
 		'sidekick What? Hope you reconsider your decision. College is very important so that we will prepared for jobs in the future. Let us go home now.',
+		'show character p normal at center with fadeIn',
 		'p Yes I am excited to see my parents',
 		'jump houseScene'
 	],
@@ -185,21 +195,32 @@ monogatari.script ({
 		//House Scene
 		'show scene house with fadeIn',
 		'You went home, kissed your parents and noticed that they are sad.',
-		'p Why are you sad?',
+		'show character p normal at center with fadeIn',
+		'p:normal Why are you sad?',
+		'hide character p with fadeOut',
 		'show character dad sad at center with fadeIn',
 		'dad:sad Hi {{player.name}}, We have something to tell you!',
 		'hide character dad with fadeOut',
+		'show character p normal at center with fadeIn',
 		'p What is it dad?',
+		'hide character p with fadeOut',
 		'show character dad sad at center with fadeIn',
 		'dad:sad Honey, Can you tell it to {{player.name}}?',
 		'hide character dad with fadeOut',
-		'show character mom sad at right with fadeIn',
+		'show character mom sad at center with fadeIn',
 		'mom:sad {{player.name}} we cannot afford to send you to college.',
 		'hide character mom with fadeOut',
-		'{{player.name}} left the house disappointed and go to the beach.',
-		'show character mom sad at right with fadeIn',
+		'show character p sad at center with fadeIn',
+		'p:sad What? I cannot believed it!',
+		'hide character p with fadeOut',
+		'show character mom sad at center with fadeIn',
 		'mom:sad Wait {{player.name}}! Where are you going?',
 		'hide character mom with fadeOut',
+		'jump leavingScene'
+	],
+	'leavingScene':[
+		'show scene leaving with fadeIn',
+		'{{player.name}} left the house disappointed and go to the beach.',
 		'jump beachScene'
 	],
 	'beachScene':[
@@ -247,6 +268,11 @@ monogatari.script ({
 		's2 I doubt that you could make it but try it you might get a miracle hahaha'
 	],
 	'pamphletScene': [
-		'p Ow they dropped a pamphlet, I will take it.'
+		'p Ow they dropped a pamphlet, I will take it.',
+		'{{player.name}} went to {sidekick.name}}',
+		'p hey I found a pamphlet about Ulaps University!',
+		'sidekick Okay let me see!',
+		'{{sidekick.name}} checks the pamphlet',
+		'sidekick So they are offering Java Lessons'
 	]
 });
