@@ -154,7 +154,7 @@ monogatari.characters ({
 		name: 'Student 2',
 		color: '#1e88e5',
 		expressions:{
-			normal:'s2.png'
+			normal:'s2.png',
 		},
 		sprites:{
 			normal:'s2.png'
@@ -163,12 +163,14 @@ monogatari.characters ({
 	'nanderf':{
 		name:'Mr. Nanderf',
 		color:'#1e88e5'
-	}
+	
+	},
 });
 
 monogatari.script ({
 	// The game starts here.
 	'Start': [
+			'show scene school with fadeIn ',
 		{
 			'Input': {
 				'Text': 'What is your name?',
@@ -205,7 +207,7 @@ monogatari.script ({
 		//Introduction
 		'show scene school with fadeIn',
 		'Graduation ceremony has just ended',
-		'Your friend Joe saw you and walks toward your direction',
+		'After the graduation ceremony...',
 		'jump sidekickIntro'
 	],
 	'sidekickIntro':[
@@ -239,7 +241,7 @@ monogatari.script ({
 	'houseScene':[
 		//House Scene
 		'show scene house with fadeIn',
-		'You went home, kissed your parents and noticed that they are sad.',
+		'When {{player.name}} arived home, {{player.name}} noticed that they are sad.',
 		'p:normal Why are you sad?',
 		'show character dad sad normal at center with fadeIn',
 		'dad:sad Hi {{player.name}}, We have something to tell you!',
@@ -339,8 +341,8 @@ monogatari.script ({
 	],
 	'houseScene2':[
 		'show scene house with fadeIn',
-		'Monday morning at your house',
-		'You just woke up and quickly take a bath and get some clothes to go outside',
+		'Monday morning at {{player.name}}\'s house...',
+		'{{player.name}} just woke up and quickly take a bath and get some clothes to go outside',
 		'show character p normal with fadeIn',
 		'p:normal Alright I will go to Ulaps University today and inquire',
 		'hide character p with fadeOut',
@@ -369,7 +371,29 @@ monogatari.script ({
 	],
 	'ulapsScene':[
 		'show scene university with fadeIn',
-		'You arrived at Ulaps University you try to find Saitama when you here someone getting the attention of everyone',
-		'nanderf Hello everyone! Welcome to Ulaps University! Please come here to get the reviewer for the entrance exam.'
+		'At Ulaps University, while looking for Joe...',
+		'nanderf Hello everyone! Welcome to Ulaps University! Please come here to get the reviewer for the entrance exam.',
+		'show character p normal with fadeIn',
+		'p:normal Hey! What is your name sir?',
+		'hide character p normal with fadeOut',
+		//need to show character of nanderf
+		'nanderf I am Mr Nanderf, I will be the one facilitating your upcoming Entrance exam',
+		'nanderf Today, I will give you the reviewer, here take it. Good luck!',
+		// need to hide character of nanderf
+		'show character p normal with fadeIn',
+		'p:normal Thank you Sir! See you. I will do my best for this. Hehe',
+		'jump houseScene3'
+		
+		
+	],
+	'houseScene3':[
+		'show scene house with fadeIn',
+		'show character p normal with fadeIn',
+		'p:normal Alright I will start learning Java, Finally I will start realizing my dreams'
+		//game interface background needed
+
 	]
+	
+
+
 });
