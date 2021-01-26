@@ -17,6 +17,20 @@
  * ===========================
 **/
 
+.myInput .modal__content {
+    background: #222;
+    color:lightblue;
+	width: 100%;
+}
+
+.someClass {
+    font-size: 2em;
+}
+
+.otherClass {
+    background: rgba(0,184,212, 0.5);
+}
+
 /* General Style */
 body {
 

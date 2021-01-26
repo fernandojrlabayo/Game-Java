@@ -181,6 +181,7 @@ monogatari.script ({
 			'show scene school with fadeIn ',
 		{
 			'Input': {
+				'Class': 'myInput someClass otherClass',
 				'Text': 'What is your name?',
 				'Validation': function (input) {
 					return input.trim ().length > 0;
@@ -192,6 +193,7 @@ monogatari.script ({
 						}
 					});
 					return true;
+					
 				},
 				'Revert': function () {
 					this.storage ({
@@ -202,6 +204,7 @@ monogatari.script ({
 				},
 				'Warning': 'You must enter a name!'
 			}
+			
 		},
 		'jump intro'
 		//'jump houseScene'
@@ -213,6 +216,10 @@ monogatari.script ({
 	],
 	'intro':[
 		//Introduction
+		'show message Help',
+		'Our main character is an average student, did not even received an award since birth',
+		'{{player.name}}\'s Father is a fisherman and {{player.name}}\'s mother is a fish market vendor at the small town of Ternate Batangas',
+		'And now finally after uncounted cutting classes, uncaught cheating during exams, and couple of school\'s violation,{{player.name}}\'s graduation has come',
 		'show scene school with fadeIn',
 		'Graduation ceremony has just ended',
 		'After the graduation ceremony...',
@@ -402,6 +409,8 @@ monogatari.script ({
 		//game interface background needed
 
 	]
+
+	
 	
 
 
