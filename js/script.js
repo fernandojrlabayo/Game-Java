@@ -9,6 +9,13 @@ monogatari.action ('message').messages ({
 			<p><a href='https://developers.monogatari.io/documentation/'>Documentation</a> - Everything you need to know.</p>
 			<p><a href='https://monogatari.io/demo/'>Demo</a> - A simple Demo.</p>
 		`
+	},
+	'JavaIntro': {
+		title: 'Welcome to Java',
+		subtitle: 'Java',
+		body: `
+			alla
+		`
 	}
 });
 
@@ -171,6 +178,7 @@ monogatari.script ({
 	// The game starts here.
 	'Start': [
 			'show scene school with fadeIn ',
+			'show message JavaIntro',
 		{
 			'Input': {
 				'Class': 'myInput someClass otherClass',
