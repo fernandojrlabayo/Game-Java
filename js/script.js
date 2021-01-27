@@ -114,6 +114,14 @@ monogatari.characters ({
 			normal:'m.png'
 		}
 	},
+	'fathermother':{
+		name: 'Father & Mother',
+		color: '#428CEB',
+		sprites: {
+			sad: 'f-m.png'
+		}
+
+	},
 	'reporter':{
 		name: 'XSe Reporter',
 		color: '#ffeb3b',
@@ -257,6 +265,7 @@ monogatari.script ({
 		'show character mom sad at right with fadeIn',
 		'mom:sad {{player.name}} we cannot afford to send you to college.',
 		'p:normal What? I cannot believed it!',
+		'show character fathermother sad at center with fadeIn',
 		'mom:sad Wait {{player.name}}! Where are you going?',
 		'jump leavingScene'
 	],
