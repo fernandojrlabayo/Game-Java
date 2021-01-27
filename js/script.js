@@ -44,7 +44,9 @@ monogatari.assets ('gallery', {
 
 // Define the music used in the game.
 monogatari.assets ('music', {
-
+	'fun': 'mainBgm.mp3',
+	'trouble': 's1s2.mp3',
+	'first': 'w-saitama.mp3',
 });
 
 // Define the voice files used in the game.
@@ -54,6 +56,7 @@ monogatari.assets ('voices', {
 
 // Define the sounds used in the game.
 monogatari.assets ('sounds', {
+
 
 });
 
@@ -86,7 +89,7 @@ monogatari.characters ({
 		name: 'Joe',
 		color: '#5bcaff',
 		expressions:{
-			normal:'saitama.png'
+			normal:'ex-saitama.png'
 		},
 		sprites:{
 			normal:'saitama.png'
@@ -96,7 +99,7 @@ monogatari.characters ({
 		name: 'Father',
 		color: '#1e88e5',
 		expressions:{
-			sad:'fathersad.png'
+			sad:'ex-fathersad.png'
 		},
 		sprites:{
 			sad:'fathersad.png'
@@ -106,21 +109,14 @@ monogatari.characters ({
 		name: 'Mother',
 		color: '#d81b60',
 		expressions:{
-			sad:'m-sad.png',
-			normal:'m.png'
+			sad:'ex-m-sad.png',
+			normal:'ex-m-sad.png'
 		},
 		sprites:{
 			sad:'m-sad.png',
-			normal:'m.png'
+			normal:'m.png',
+			duo: 'f-m.png'
 		}
-	},
-	'fathermother':{
-		name: 'Father & Mother',
-		color: '#428CEB',
-		sprites: {
-			sad: 'f-m.png'
-		}
-
 	},
 	'reporter':{
 		name: 'XSe Reporter',
@@ -137,32 +133,32 @@ monogatari.characters ({
 		color: '#decaff',
 		expressions:{
 			sad:'p-sad.png',
-			normal:'p-norm.png',
-			happy:'p-hppy.png'
+			normal:'p-hppy.png',
+			happy:'p-exctd.png'
 		},
 		sprites:{
-			sad:'p-sad.png',
-			normal:'p-norm.png',
-			happy:'p-hppy.png'
+			sad:'player.png',
+			normal:'player.png',
+			happy:'player.png'
 		}
 	},
 	's1':{
 		name: 'Student 1',
 		color: '#d81b60',
 		expressions:{
-			normal:'s1.png',
-			duo:'s1-2.png'
+			normal:'ex-s1.png',
+			duo:'s1-s2.png'
 		},
 		sprites:{
 			normal:'s1.png',
-			duo:'s1-2.png'
+			duo:'s1-s2.png'
 		}
 	},
 	's2':{
 		name: 'Student 2',
 		color: '#1e88e5',
 		expressions:{
-			normal:'s2.png',
+			normal:'ex-s2.png',
 		},
 		sprites:{
 			normal:'s2.png'
@@ -170,7 +166,14 @@ monogatari.characters ({
 	},
 	'nanderf':{
 		name:'Mr. Nanderf',
-		color:'#1e88e5'
+		color:'#1e88e5',
+		expressions:{
+			normal:'ex-nanderf.png'
+		},
+
+		sprites:{
+			normal:'nanderf.png'
+		}
 	
 	},
 });
@@ -225,6 +228,7 @@ monogatari.script ({
 		'After the graduation ceremony...',
 		'jump sidekickIntro'
 	],
+
 	'sidekickIntro':[
 		'show character sidekick normal at center with fadeIn',
 		'sidekick:normal Yeah! Finally we have finished High School. {{player.name}} are you excited to go to College?',
@@ -238,41 +242,45 @@ monogatari.script ({
 				'Do':'jump sidekickSceneNo'
 			}
 		}}
+		
 	],
 	'sidekickSceneYes': [
+		'play music fun with volume 75 fade 3',
 		'show character sidekick normal at center with fadeIn',
 		'sidekick:normal Nice, hopefully we can enroll in the same University. Let us go home now.',
 		'hide character sidekick with fadeOut',
 		'show character p normal at center with fadeIn',
 		'p:normal Yes I am excited to see my parents',
 		'jump houseScene'
+		
 	],
 	'sidekickSceneNo': [
 		'show character sidekick normal at center with fadeIn',
 		'sidekick What? Hope you reconsider your decision. College is very important so that we will prepared for jobs in the future.',
 		'hide character sidekick with fadeOut',
 		'jump sidekickIntro'
+	
 	],
 	'houseScene':[
 		//House Scene
 		'show scene house with fadeIn',
 		'When {{player.name}} arived home, {{player.name}} noticed that they are sad.',
 		'p:normal Why are you sad?',
-		'show character dad sad normal at center with fadeIn',
+		'show character dad sad normal at left with fadeIn',
 		'dad:sad Hi {{player.name}}, We have something to tell you!',
 		'p:normal What is it dad?',
 		'dad:sad Honey, Can you tell it to {{player.name}}?',
-		'show character mom sad at right with fadeIn',
+		'show character mom sad at center with fadeIn',
 		'mom:sad {{player.name}} we cannot afford to send you to college.',
 		'p:normal What? I cannot believed it!',
-		'show character fathermother sad at center with fadeIn',
 		'mom:sad Wait {{player.name}}! Where are you going?',
-		'jump leavingScene'
-	],
+		'jump leavingScene',
+  ],
 	'leavingScene':[
 		'show scene leaving with fadeIn',
 		'{{player.name}} left the house disappointed and go to the town.',
 		'jump streetScene'
+		
 	],
 	'streetScene':[
 		'show scene street with fadeIn',
@@ -304,6 +312,7 @@ monogatari.script ({
 	],
 	'StudentScene':[
 		//Student Scene
+		'play music trouble with volume 50 fade 5 ',
 		'show scene s-home with fadeIn',
 		'show character s1 normal at center with fadeIn',
 		's1:normal I am excited to attend Ulaps University entrance exam! I am very confident that I will pass it',
@@ -388,14 +397,16 @@ monogatari.script ({
 	'ulapsScene':[
 		'show scene university with fadeIn',
 		'At Ulaps University, while looking for Joe...',
+		'show character nanderf normal with fadeIn',
 		'nanderf Hello everyone! Welcome to Ulaps University! Please come here to get the reviewer for the entrance exam.',
+		'hide character nanderf normal with fadeOut',
 		'show character p normal with fadeIn',
 		'p:normal Hey! What is your name sir?',
 		'hide character p normal with fadeOut',
-		//need to show character of nanderf
+		'show character nanderf normal with fadeIn',
 		'nanderf I am Mr Nanderf, I will be the one facilitating your upcoming Entrance exam',
 		'nanderf Today, I will give you the reviewer, here take it. Good luck!',
-		// need to hide character of nanderf
+		'hide character nanderf normal with fadeOut',
 		'show character p normal with fadeIn',
 		'p:normal Thank you Sir! See you. I will do my best for this. Hehe',
 		'jump houseScene3'
