@@ -2,21 +2,80 @@
 
 // Define the messages used in the game.
 monogatari.action ('message').messages ({
-	'Help': {
-		title: 'Help',
-		subtitle: 'Some useful Links',
+	'JavaGameIntro': {
+		title: 'Welcome to our Version of Java Gamification',
 		body: `
-			<p><a href='https://developers.monogatari.io/documentation/'>Documentation</a> - Everything you need to know.</p>
-			<p><a href='https://monogatari.io/demo/'>Demo</a> - A simple Demo.</p>
+			We hope you would enjoy playing at the same time learning inside this game. Good luck and enjoy coding!
 		`
 	},
+
 	'JavaIntro': {
 		title: 'Welcome to Java',
-		subtitle: 'Java',
 		body: `
-			alla
+			<p><span style="font-size: 40px; color: blue;">Java</span> is a high level, modern programming language 
+				designed in the early 1990's by the Sun Microsystems, and currently owned by Oracle.
+			</p>
+			<p>Java is a <span style="font-size: 40px; color: blue;"> Platform Independent</span>, which means what 
+				you only need to write the program once to be able to run it on a number of different platforms!
+			</p>
+			<p><span style="font-size: 40px; color: blue;">Java</span> is is portable, robust and dynamic, with the ability 
+				to fit the needs of virtually any type of application.
+			</p>
 		`
-	}
+	},
+
+	'Question1': {
+		title: 'Question no.1',
+		body: `
+			<p>To Distribute your application to different Platforms, how many Java versions do you need to create?</p>
+			<form>	
+					<input type="radio" id="male" name="a" value="a"> a.Two versions
+					<input type="radio" id="male" name="b" value="b"> b.One for each platform
+					<input type="radio" id="male" name="c" value="c"> c.Just one version
+			</form>
+		`
+	},
+	'JavaIntro2': {
+		title: '<bold>Java</bold>',
+		body: `
+			<p>More than 3 billion devices run Java </p>
+			<p>	
+				Java is used to develop apps for Googles's Android OS, various Desktop Applications, 
+				such as media players, antivirus programs, Web Applications, Enterprise Applicaions (i.e> banking), and many more! 
+			</p>
+			
+		`
+	},
+	
+	'Question2': {
+		title: 'Question no.2',
+		body: `
+			<p>Which of the following statements is true?</p>
+			<form>	
+					<input type="radio" id="male" name="a" value="a"> a.Java is used only in NASA's space related applications
+					<input type="radio" id="male" name="b" value="b"> b.Java is used only in web and mobile applications
+					<input type="radio" id="male" name="c" value="c"> c.Java has a huge developer community
+			</form>
+		`
+	},
+
+	
+	'YourfirsJavaProgram': {
+		title: 'Your first Java Program',
+		body: `
+			<p>Lest's start creating a simple program that prints "Hello World" to the screen.</p>
+
+			<p>class Myclass{</p>
+				<span> public static void main (String []args) { </span>
+				<span> system.out.println("Hello World);</span>
+				<p> }</p>
+			<span>}</span>
+		
+		
+
+		`
+	},
+
 });
 
 // Define the notifications used in the game
@@ -189,7 +248,9 @@ monogatari.script ({
 	// The game starts here.
 	'Start': [
 			'show scene school with fadeIn ',
+			'show message YourfirsJavaProgram',
 			'show message JavaIntro',
+			'show message Question1',
 		{
 			'Input': {
 				'Class': 'myInput someClass otherClass',
@@ -227,7 +288,6 @@ monogatari.script ({
 	],
 	'intro':[
 		//Introduction
-		'show message Help',
 		'Our main character is an average student, did not even received an award since birth',
 		'{{player.name}}\'s Father is a fisherman and {{player.name}}\'s mother is a fish market vendor at the small town of Ternate Batangas',
 		'And now finally after uncounted cutting classes, uncaught cheating during exams, and couple of school\'s violation,{{player.name}}\'s graduation has come',
