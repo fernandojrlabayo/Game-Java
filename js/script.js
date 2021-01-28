@@ -8,17 +8,349 @@ monogatari.action ('message').messages ({
 		body: `
 			<p><a href='https://developers.monogatari.io/documentation/'>Documentation</a> - Everything you need to know.</p>
 			<p><a href='https://monogatari.io/demo/'>Demo</a> - A simple Demo.</p>
+		`},
+	'JavaIntro':{
+		title:'Java',
+		subtitle:'Java is a high level, modern programming language designed in the early 1990s by Sun Microsystems, and currently owned by Oracle.',
+		body:`
+			Java is <b>Platdorm Independent</b>, which means that you only need to write the program once to be able to run it on different platforms.
+		 	Java is <b>portable,robust,</b> and <b>dynamic,</b> with the ability to fit the needs of virtually any typesof application.
+			`
+	},
+	'testing':{
+		title:'Test your codes here',
+		body:`<iframe height="400px" width="100%" src="https://repl.it/@jaytinosa/test?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>`
+	},
+	'Variable': {
+		title: 'Variables',
+		subtitle: '<b>Variables</b> store data for processing. A variable is given a name (or <b>identifier</b>), such as area, age, height, and the like. The name uniquely identifies each variable, assigning a value to the variable retrieving the value stored.',
+		body: `
+		'Variables have <b>types</b>. Some examples:<br>-<mark>int</mark>: for integers (whole numbers) such as 123 and -456<br>- <b>double</b> : for floating-point or real numbers with optional decimal points and fractional parts in fixed or scientific notations, such as 3.1416, -55.66.<br>-<mark>String</mark>: for text such as "Hello" or "Good Morning". Text strings are enclosed within double quotes.<br><br>You can declare a variable of a type and assign it a value.<br><b>Example</b>:<br><br><mark>String</mark> <b>name</b> = <mark>"David"</mark>;<br> This creates a variable called <b>name</b> of type String, and assigns it the value "David".'
 		`
 	},
-	'question2':{
-		title: 'Please Complete the code to print Hello World',
+	'VariableQ': {	
 		body: `
-			<p>class Main {</p>
-			<p>&nbsp public static void main(String[]args){</p>
-			<p>&nbsp }</p>
-			<p>}</p>
+		<p>Which variable type would you use for a city name?<p>
+		<label for="variable">Choose your answer:</label>
+		<select id="var" name="var">
+			<option value="double">double</option>
+			<option value="string">String</option>
+			<option value="integer">int</option>
+		</select>`
+	},
+	'Variables2': {
+		title: 'Examples of variable declarations:',
+		body: `
+			class MyClass {<br> public static void main (String[] args){<br>String name = "David";<br>int age = 42;<br>double score = 15.9;<br>char group = 'Z';<br>}<br>}`
+	},
+	'userInput': {
+		title: 'While Java provides many different methods for getting use input, the <b>Scanner</b> object is the most common, and perharps the easiest to implement. Import the <b>Scanner</b> class to us the <b>Scanner</b> object, as seen here:',
+		body: `<mark>import java.util.<b>Scanner</b>;
+		<p>In order to use the <b>Scanner</b> class, create an <u>instance</u> of the class by using the following syntax:</p>
+		<b>Scanner</b> myVar = new <b>Scanner</b>(System.in);
+		<p>You can now read in different kinds of input data that the user enters.<br>Here are some methods that are available through the Scanner class:<br>Read a byte - nextByte()<br>Read a short - nextShort()<br>Read an <u>int</u> - nextInt()<br>Read a long - nextLong()<br>Read a <u>float</u> - nextFloat()<br>Read a double - nextDouble()<br>Read a <u>boolean</u> - nextBoolean()<br>Read a complete line - nextLine()<br>Read a word - next()
+		<br>
+		<p><b>Example of a program used to get user input:</b><br>import java.util.Scanner;<br><br>class MyClass {<br><blockquote>public <u>static void</u> main(<u>String</u>[]args){<br><br><blockquote>Scanner myVar = new Scanner(System.in);<br><blockquote>System.out.printIn(myVar.nextLine());<br>}<br>}
 		`
-	}
+	},		
+	'userInputQ1': {
+		title: 'Select the the right answer to get user input.',
+		body: `
+		<label for="variable">import java.util.Scanner;<br>class test {<br><blockquote>public static void main(String[] args){<br></label>
+		<select id="input" name="input">
+			<option value="nextLine">nextLine</option>
+			<option value="Scanner">Scanner</option>
+		</select> sc = new Scanner(System.in);<br>
+		String st = sc.<select id="input" name="input">
+		<option value="Scanner">Scanner</option>
+		<option value="nextLine">nextLine</option>
+	</select>();<br>}<br>}
+		`
+	},
+	'primitiveOps': {
+		title: 'The Math Operators',
+		subtitle: 'Java provides a rich set of operators to use in manipulating variable. A value used on either side of an operator is called an <b>operand</b>.<br>For example, in the expression below, the nubmers 6 and 3 are operands of the plus operator:<br>',
+		body: ` 
+			<mark>int x = 6 + 3;</mark>
+			<br></br>
+			Java arithmetic operators:
+			<br><b>+ addition</b>
+			<br><b>- substraction</b>
+			<br><b>* multiplication</b>
+			<br><b>/ division</b>
+			<br><b>% modulo</b>`
+	},
+	'primitiveOpsQ': {
+		subtitle: 'Select answer to declare an integer variable and set its value to 5.',
+		body:`
+		<select id="intV" name="intV">
+		<option value="double">double</option>
+		<option value="int">int</option>
+		</select> var = <select id="intV1" name="intV1">
+				<option value="3">3</option>
+				<option value="5">5</option>
+		</select>`  
+	},
+	'primitiveOps2': {
+		title: 'Addition',
+		subtitle: 'The + operator adds together two values, such as twi constants, a constant and a variable, or a variable and a variable. Here are a few examples of addition:',
+		body: `
+			int sum1 = 50 + 10;<br>
+			int sum2 = sum1 + 66;<br>
+			int sum3 = sum2 + sum2;	
+		
+		<h3>Substraction</h3>
+		<p>The - operator subtracts one value from another.</p> 
+		<p>
+			int sum1 = 1000 - 10;<br>
+			int sum2 = sum1 - 5;<br>
+			int sum3 = sum1 - sum2;	
+		</p>`
+	},
+	'primitiveOpsQ2': {
+		subtitle: 'Select answer to print sum of the two variables.',
+		body: `
+			int x 2; int y = 4;<br>
+			int result = x <select id="primO" name="primO">
+			<option value="-">-</option>
+			<option value="+">+</option>
+			</select><select id="primO1" name="primO1">
+			<option value="3">3</option>
+			<option value="y">y</option>
+			</select>;<br>
+			System.out.printIn(<select id="primO2" name="primO2">
+			<option value="equals">equals</option>
+			<option value="result">result</option>
+			</select>);
+		`
+	},
+	'primitiveOps3': {
+		title: 'Multiplication',
+		subtitle: 'The * operator multiplies two values.',
+		body: `
+			int sum1 = 1000 * 2;<br>
+			int sum2 = sum1 * 10;<br>
+			int sum3 = sum2 * sum2;	
+		
+		<h3>Division</h3>
+		<p>The / operator divides one value by another.</p> 
+		<p>
+			int sum1 = 1000 / 5;<br>
+			int sum2 = sum1 / 2;<br>
+			int sum3 = sum1 / sum2;	
+		</p>`
+	},
+	'primitiveOpsQ3': {
+		subtitle: 'What is the result of the following code?',
+		body: `
+			int x = 15; int y = 4;<br>
+			int result = x / y;<br>
+			System.out,printIn(result);
+			<select id="var" name="var">
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="3">3</option>
+			<option value="11">11</option>
+			</select>`
+	}, 
+	'primitiveOps4': {
+		title: 'Modulo',
+		subtitle: 'The <b>modulo</b> (or remainder) math operation performs an <u>integer</u> division of one value by another, and returns the remainder of that division.<br>The operator for the modulo operation is the percentage (%) character.<br><b>Example:</b>',
+		body: `
+			int value = 23;<br>
+			int res = value % 6;// res is 5<br>
+			`
+	},
+	'primitiveOpsQ4': {
+		subtitle: 'What value is stored in the result variable?',
+		body: `
+			int x = 8; int y = 5;<br>
+			int result = x % y;<br>
+			System.out,printIn(result);
+			<select id="var" name="var">
+			<option value="8">8</option>
+			<option value="5">5</option>
+			<option value="3">3</option>
+			<option value="3.5">3.5</option>
+			</select>`
+	}, 
+	'incrDecr': {
+		title: 'Increment Operators',
+		subtitle: 'An <b>increment</b> or <b>decrement</b> operator provides a more convenient and compact way to increase or decrease the value of a variable by <b>one</b>.<br>For example, the statement <b>x=x+1;</b>can be simplified to <b>++x;</b><br><b>Example:</b>',
+		body: `
+			int test = 5;<br>
+			++test;<br>// test is now 6
+			<br>
+			<br>
+			<p>The <b>decrement</b> operator (-) is used to decrease the value of a variable by one.
+			<br>
+			<br>
+			int test = 5;<br>
+			--test;<br>// test is now 4
+			`
+	},
+	'incrDecr1': {
+		title: 'Prefix & Postfix',
+		subtitle: 'Two forms <b>prefix</b> and <b>postfix</b>, may be used with both the increment and decrement operators.<br>Withe prefix form, the operator appears before the operand, while in postfix form, the operator appears after the operand. Below is an explantation of how the two forms work:<br><b>Prefix:</b> Increments the variable value and uses the new value in the expressions.<br><b>Example:</b>',
+		body: `
+			int x = 34;<br>
+			int y = ++x;// y is 35
+			<br>
+			<br>
+			<p>The value of x is first incremented to 35, and is then assigned to y, so the values of both x and y are now 35.<br><b>Postfix:</b> The variable value is first used in the expression and is then increased.<br><b>Example:</b>
+			<br>
+			<br>
+			int x = 34;<br>
+			int y = x++;// y is 34<br>
+			`
+		},
+		'incrDecrQ1': {
+			subtitle: 'What is the output of the following code?',
+			body: `
+				int x = 14;<br>
+				System.out,printIn(x++);
+				<select id="incr" name="incr">
+				<option value="8">8</option>
+				<option value="14">14</option>
+				<option value="13">13</option>
+				<option value="15">15</option>
+				</select>`
+		}, 
+		'incrDecr2': {
+			title: 'Assignment Operators',
+			subtitle: 'You are alread familiar with the <b>assignments</b> operator (=), which assigns a value to a variable.',
+			body: `
+				int value = 5;<br>
+				<br>
+				<p>This assigned the value 5 to a variable called <b>value</b> of type <u>int</u>.<br><br> Java provides a number of assignment operators to make it easier to write code.<br><b>Addition and assignment (+=):</b>
+				<br>
+				<br>
+				int num1 = 4;<br>
+				int num2 = 8;<br>
+				num2 += num1;// num2 = num2 + num1;
+				<br>
+				// num2 is 12 and num1 is 4
+				<p><b>Subtraction and assignment (-=):</b></p>
+				<br>
+				<br>
+				int num1 = 4;<br>
+				int num2 = 8;<br>
+				num2 -= num1;// num2 = num2 - num1;
+				<br>
+				// num2 is 4 and num1 is 4
+				`
+		},
+		'incrDecrQ2': {
+			subtitle: 'Select the answer in the following code to print 13.',
+			body: `
+				int x = 25;int y;<br>
+				y = <select id="var" name="var">
+				<option value="8">8</option>
+				<option value="x">x</option>
+				<option value="xy">xy</option>
+				</select> - 12;<br>
+				System.out,printIn(<select id="incr" name="incr">
+				<option value="++x">++x</option>
+				<option value="result">result</option>
+				<option value="y">y</option>
+				</select>);
+				`
+		}, 
+		'strings1': {
+			title: 'Strings',
+			subtitle: 'A <u><b>String</b></u> is and object that represents a sequence of characters.<br>For example, "Hello" is a string of 5 characters.<br><br><b>Example:</b>',
+			body: `
+				<b>String</b> s = "SoloLearn";<br><br>
+				<p>You are allowed to define an empty string. For example, <u><b>String</b></u> str = "";
+				`
+		},
+		'stringQ1': {
+			subtitle: 'Select the answer to print "Hello".',
+			body: `
+				<select id="str" name="str">
+				<option value="int">int</option>
+				<option value="str">str</option>
+				<option value="String">String</option>
+				</select> var;<br>var = "Hello";<br>
+				System.out,printIn(<select id="incr" name="incr">
+				<option value="s">s</option>
+				<option value="result">result</option>
+				<option value="var">var</option>
+				</select>);
+				`
+		}, 
+		'strings2': {
+			title: 'String Concatenation',
+			subtitle: 'The + (plus) operator between strings adds them together to make a new string. This process is called <b>concatenation</b>.<br>The resulted string is the first string put together with the second string.<br><b>Example:</b>',
+			body: `
+				<b>String</b> firstName, lastName;<br> firstName = "David";<br>
+				lastName = "Williams";<br><br>
+				System.out,printIn("My name is " + firsName +""+lastName);<br><br>
+
+				<p>The <u><b>char</b></u> data type represents a single character;
+				`
+		},
+		'stringQ2': {
+			subtitle: 'Select answer of which statement in regard to the char data type is true?',
+			body: `
+				<select id="str1" name="str1">
+				<option value="hello">"hello" is a char</"option>
+				<option value="k">'k' is a char</option>
+				<option value="char">char is used to store numeric values</option>
+				</select>
+				`
+		},
+		'moduleQ1': {
+			subtitle: 'Please select answer in a code to declare two variables of type int and print their sum using sum variable.',
+			body: `
+				int x = 4;<br>
+				<select id="opr1" name="opr1">
+				<option value="int">int</option>
+				<option value="str">str</option>
+				<option value="var">var</option>
+				</select> y = 7;
+				<br>
+				int sume = x <select id="opr2" name="opr2">
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="+">+</option>
+				</select> y;
+				<br>
+				System.out,printIn(<select id="var" name="var">
+				<option value="sum">sum</option>
+				<option value="result">result</option>
+				<option value="equals">equals</option>
+				</select>);
+				`
+		},
+		'moduleQ2': {
+			subtitle: 'In ever Java program...',
+			body: `
+				<select id="str1" name="str1">
+				<option value="1">...there must be a method called "main".</"option>
+				<option value="2">...all of the variables must be integers</option>
+				<option value="3">...there must be at least two variables declared.</option>
+				</select>
+				`
+		}, 
+		'moduleQ3': {
+			subtitle: 'Please select answer to output the name',
+			body: `
+				<select id="str1" name="str1">
+				<option value="int">int</option>
+				<option value="str">String</option>
+				<option value="var">var</option>
+				</select> name;
+				<br>
+				name = "David";
+				<br>
+				System.out,printIn(<select id="var" name="var">
+				<option value="name">name</option>
+				<option value="result">result</option>
+				<option value="equals">equals</option>
+				</select>);
+				`
+		},
 });
 
 // Define the notifications used in the game
@@ -53,7 +385,9 @@ monogatari.assets ('gallery', {
 
 // Define the music used in the game.
 monogatari.assets ('music', {
-
+	'fun': 'mainBgm.mp3',
+	'trouble': 's1s2.mp3',
+	'first': 'w-saitama.mp3',
 });
 
 // Define the voice files used in the game.
@@ -63,6 +397,7 @@ monogatari.assets ('voices', {
 
 // Define the sounds used in the game.
 monogatari.assets ('sounds', {
+
 
 });
 
@@ -95,7 +430,7 @@ monogatari.characters ({
 		name: 'Joe',
 		color: '#5bcaff',
 		expressions:{
-			normal:'saitama.png'
+			normal:'ex-saitama.png'
 		},
 		sprites:{
 			normal:'saitama.png'
@@ -105,7 +440,7 @@ monogatari.characters ({
 		name: 'Father',
 		color: '#1e88e5',
 		expressions:{
-			sad:'fathersad.png'
+			sad:'ex-fathersad.png'
 		},
 		sprites:{
 			sad:'fathersad.png'
@@ -115,21 +450,14 @@ monogatari.characters ({
 		name: 'Mother',
 		color: '#d81b60',
 		expressions:{
-			sad:'m-sad.png',
-			normal:'m.png'
+			sad:'ex-m-sad.png',
+			normal:'ex-m-sad.png'
 		},
 		sprites:{
 			sad:'m-sad.png',
-			normal:'m.png'
+			normal:'m.png',
+			duo: 'f-m.png'
 		}
-	},
-	'fathermother':{
-		name: 'Father & Mother',
-		color: '#428CEB',
-		sprites: {
-			sad: 'f-m.png'
-		}
-
 	},
 	'reporter':{
 		name: 'XSe Reporter',
@@ -146,32 +474,32 @@ monogatari.characters ({
 		color: '#decaff',
 		expressions:{
 			sad:'p-sad.png',
-			normal:'p-norm.png',
-			happy:'p-hppy.png'
+			normal:'p-hppy.png',
+			happy:'p-exctd.png'
 		},
 		sprites:{
-			sad:'p-sad.png',
-			normal:'p-norm.png',
-			happy:'p-hppy.png'
+			sad:'player.png',
+			normal:'player.png',
+			happy:'player.png'
 		}
 	},
 	's1':{
 		name: 'Student 1',
 		color: '#d81b60',
 		expressions:{
-			normal:'s1.png',
-			duo:'s1-2.png'
+			normal:'ex-s1.png',
+			duo:'s1-s2.png'
 		},
 		sprites:{
 			normal:'s1.png',
-			duo:'s1-2.png'
+			duo:'s1-s2.png'
 		}
 	},
 	's2':{
 		name: 'Student 2',
 		color: '#1e88e5',
 		expressions:{
-			normal:'s2.png',
+			normal:'ex-s2.png',
 		},
 		sprites:{
 			normal:'s2.png'
@@ -179,7 +507,14 @@ monogatari.characters ({
 	},
 	'nanderf':{
 		name:'Mr. Nanderf',
-		color:'#1e88e5'
+		color:'#1e88e5',
+		expressions:{
+			normal:'ex-nanderf.png'
+		},
+
+		sprites:{
+			normal:'nanderf.png'
+		}
 	
 	},
 });
@@ -187,7 +522,8 @@ monogatari.characters ({
 monogatari.script ({
 	// The game starts here.
 	'Start': [
-			'show scene school with fadeIn',
+			'show scene school with fadeIn ',
+			//'show message moduleQ1 ',
 		{
 			'Input': {
 				'Class': 'myInput someClass otherClass',
@@ -222,7 +558,8 @@ monogatari.script ({
 		//'jump houseScene2'
 		//'jump StudentSceneYes'
 		//'jump houseScene2'
-		'jump houseScene3'
+		//'jump houseScene3'
+		'jump JavaIntroScene'
 	],
 	'intro':[
 		//Introduction
@@ -235,6 +572,7 @@ monogatari.script ({
 		'After the graduation ceremony...',
 		'jump sidekickIntro'
 	],
+
 	'sidekickIntro':[
 		'show character sidekick normal at center with fadeIn',
 		'sidekick:normal Yeah! Finally we have finished High School. {{player.name}} are you excited to go to College?',
@@ -248,41 +586,45 @@ monogatari.script ({
 				'Do':'jump sidekickSceneNo'
 			}
 		}}
+		
 	],
 	'sidekickSceneYes': [
+		'play music fun with volume 75 fade 3',
 		'show character sidekick normal at center with fadeIn',
 		'sidekick:normal Nice, hopefully we can enroll in the same University. Let us go home now.',
 		'hide character sidekick with fadeOut',
 		'show character p normal at center with fadeIn',
 		'p:normal Yes I am excited to see my parents',
 		'jump houseScene'
+		
 	],
 	'sidekickSceneNo': [
 		'show character sidekick normal at center with fadeIn',
 		'sidekick What? Hope you reconsider your decision. College is very important so that we will prepared for jobs in the future.',
 		'hide character sidekick with fadeOut',
 		'jump sidekickIntro'
+	
 	],
 	'houseScene':[
 		//House Scene
 		'show scene house with fadeIn',
 		'When {{player.name}} arived home, {{player.name}} noticed that they are sad.',
 		'p:normal Why are you sad?',
-		'show character dad sad normal at center with fadeIn',
+		'show character dad sad normal at left with fadeIn',
 		'dad:sad Hi {{player.name}}, We have something to tell you!',
 		'p:normal What is it dad?',
 		'dad:sad Honey, Can you tell it to {{player.name}}?',
-		'show character mom sad at right with fadeIn',
+		'show character mom sad at center with fadeIn',
 		'mom:sad {{player.name}} we cannot afford to send you to college.',
 		'p:normal What? I cannot believed it!',
-		'show character fathermother sad at center with fadeIn',
 		'mom:sad Wait {{player.name}}! Where are you going?',
-		'jump leavingScene'
-	],
+		'jump leavingScene',
+  ],
 	'leavingScene':[
 		'show scene leaving with fadeIn',
 		'{{player.name}} left the house disappointed and go to the town.',
 		'jump streetScene'
+		
 	],
 	'streetScene':[
 		'show scene street with fadeIn',
@@ -314,6 +656,7 @@ monogatari.script ({
 	],
 	'StudentScene':[
 		//Student Scene
+		'play music trouble with volume 50 fade 5 ',
 		'show scene s-home with fadeIn',
 		'show character s1 normal at center with fadeIn',
 		's1:normal I am excited to attend Ulaps University entrance exam! I am very confident that I will pass it',
@@ -398,14 +741,16 @@ monogatari.script ({
 	'ulapsScene':[
 		'show scene university with fadeIn',
 		'At Ulaps University, while looking for Joe...',
+		'show character nanderf normal with fadeIn',
 		'nanderf Hello everyone! Welcome to Ulaps University! Please come here to get the reviewer for the entrance exam.',
+		'hide character nanderf normal with fadeOut',
 		'show character p normal with fadeIn',
 		'p:normal Hey! What is your name sir?',
 		'hide character p normal with fadeOut',
-		//need to show character of nanderf
+		'show character nanderf normal with fadeIn',
 		'nanderf I am Mr Nanderf, I will be the one facilitating your upcoming Entrance exam',
 		'nanderf Today, I will give you the reviewer, here take it. Good luck!',
-		// need to hide character of nanderf
+		'hide character nanderf normal with fadeOut',
 		'show character p normal with fadeIn',
 		'p:normal Thank you Sir! See you. I will do my best for this. Hehe',
 		'jump houseScene3'
@@ -417,20 +762,24 @@ monogatari.script ({
 		'show character p normal with fadeIn',
 		'p:normal Alright I will start learning Java, Finally I will start realizing my dreams',
 		//game interface background needed
-		'jump Question2'
+		'jump JavaIntroScene'
 	],
-	'Question2':[
-		'show message question2',
+	'JavaIntroScene':[
+		'show message JavaIntro',
+		'show message testing',
 		{'Choice': {
 			'Yes': {
-				'Text': 'System.out.print(Hello World);',
+				'Text': 'Continue the game?',
 				'Do': 'jump sidekickSceneYes'
 			},
 			'No': {
-				'Text': 'System.out.println(Hello World);',
-				'Do':'jump sidekickSceneNo'
+				'Text': 'Repeat the scene?',
+				'Do':'jump JavaIntroScene'
 			}
 		}}
-		
+	],
+	'test':[
+		'End of pattern'
 	]
+		
 });
