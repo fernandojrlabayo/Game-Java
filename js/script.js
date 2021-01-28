@@ -9,34 +9,19 @@ monogatari.action ('message').messages ({
 		`
 	},
 
-	'JavaIntro': {
-		title: 'Welcome to Java',
-		body: `
-			<p><span style="font-size: 40px; color: blue;">Java</span> is a high level, modern programming language 
-				designed in the early 1990's by the Sun Microsystems, and currently owned by Oracle.
-			</p>
-			<p>Java is a <span style="font-size: 40px; color: blue;"> Platform Independent</span>, which means what 
-				you only need to write the program once to be able to run it on a number of different platforms!
-			</p>
-			<p><span style="font-size: 40px; color: blue;">Java</span> is is portable, robust and dynamic, with the ability 
-				to fit the needs of virtually any type of application.
-			</p>
-		`
-	},
-
 	'Question1': {
 		title: 'Question no.1',
 		body: `
 			<p>To Distribute your application to different Platforms, how many Java versions do you need to create?</p>
-			<form>	
+			<select>	
 					<input type="radio" id="male" name="a" value="a"> a.Two versions
 					<input type="radio" id="male" name="b" value="b"> b.One for each platform
 					<input type="radio" id="male" name="c" value="c"> c.Just one version
-			</form>
+			</select>
 		`
 	},
 	'JavaIntro2': {
-		title: '<bold>Java</bold>',
+		title: '<b>Java</b>',
 		body: `
 			<p>More than 3 billion devices run Java </p>
 			<p>	
@@ -51,11 +36,11 @@ monogatari.action ('message').messages ({
 		title: 'Question no.2',
 		body: `
 			<p>Which of the following statements is true?</p>
-			<form>	
+			<selec>	
 					<input type="radio" id="male" name="a" value="a"> a.Java is used only in NASA's space related applications
 					<input type="radio" id="male" name="b" value="b"> b.Java is used only in web and mobile applications
 					<input type="radio" id="male" name="c" value="c"> c.Java has a huge developer community
-			</form>
+			</selec>
 		`
 	},
 
@@ -79,7 +64,7 @@ monogatari.action ('message').messages ({
 		title:'Java',
 		subtitle:'Java is a high level, modern programming language designed in the early 1990s by Sun Microsystems, and currently owned by Oracle.',
 		body:`
-			Java is <b>Platdorm Independent</b>, which means that you only need to write the program once to be able to run it on different platforms.
+			Java is <b>Platform Independent</b>, which means that you only need to write the program once to be able to run it on different platforms.
 		 	Java is <b>portable,robust,</b> and <b>dynamic,</b> with the ability to fit the needs of virtually any typesof application.
 			`
 	},
@@ -486,7 +471,9 @@ monogatari.assets ('scenes', {
 	'reporter':'r-street.jpg',
 	's-home':'s-home.jpg',
 	'sidekickhouse':'sidekickhouse.jpg',
-	'university':'university.jpeg'
+	'university':'university.jpeg',
+	'hang-out': 'beach-hang.jpg',
+	'studyroom':'hangout.jpg',
 });
 
 
@@ -589,9 +576,7 @@ monogatari.script ({
 	// The game starts here.
 	'Start': [
 			'show scene school with fadeIn ',
-			'show message YourfirsJavaProgram',
-			'show message JavaIntro',
-			'show message Question1',
+			'show message JavaGameIntro',
 			//'show message moduleQ1 ',
 		{
 			'Input': {
@@ -620,7 +605,7 @@ monogatari.script ({
 			}
 			
 		},
-		//'jump intro'
+		// 'jump intro'
 		//'jump houseScene'
 		//'jump leavingScene'
 		//'jump StudentScene'
@@ -628,7 +613,7 @@ monogatari.script ({
 		//'jump StudentSceneYes'
 		//'jump houseScene2'
 		//'jump houseScene3'
-		'jump JavaIntroScene'
+		'jump JavaIntroScene1'
 	],
 	'intro':[
 		//Introduction
@@ -826,28 +811,66 @@ monogatari.script ({
 		
 	],
 	'houseScene3':[
-		'show scene house with fadeIn',
+		'show scene studyroom with fadeIn',
 		'show character p normal with fadeIn',
 		'p:normal Alright I will start learning Java, Finally I will start realizing my dreams',
 		//game interface background needed
-		'jump JavaIntroScene'
+		'jump JavaIntroScene1'
 	],
-	'JavaIntroScene':[
-		'show message JavaIntro',
-		'show message testing',
+
+	'JavaIntroScene1':[
+		'show scene studyroom with fadeIn',
+	
 		{'Choice': {
 			'Yes': {
 				'Text': 'Continue the game?',
-				'Do': 'jump sidekickSceneYes'
+				'Do': 'jump JavaIntroScene2',
 			},
 			'No': {
-				'Text': 'Repeat the scene?',
-				'Do':'jump JavaIntroScene'
+				'Text': 'Take a break and talk to Joe?',
+				'Do':'jump JoeScenePython',
 			}
 		}}
 	],
 	'test':[
 		'End of pattern'
-	]
+	],
+	'JavaIntroScene2':[
+		'show scene studyroom with fadeIn',
+		'show message VariableQ',
+	
+	],
+
+	'JoeScenePython':[
+		'show scene hang-out with fadeIn',
+		'show character sidekick normal with fadeIn',
+		'sidekick:normal Hey  {{player.name}}! Where have you been that day?',
+		'hide character sidekick normal with fadeOut',
+		'show character p normal with fadeIn',
+		'p:normal Haha, I am supposed to ask that to you idiot. By the way,I talked to Mr. Nanderf, he is my long-time friend. Hehe',
+		'hide character p normal with fadeOut',
+		'show character sidekick normal with fadeIn',
+		'sidekick:normal Really?',
+		'hide character sidekick normal with fadeOut',
+		'show character p normal with fadeIn',
+		'p:normal Yes. How about you idiot? I have been looking for you!',
+		'hide character p normal with fadeOut',
+		'show character sidekick normal with fadeIn',
+		'sidekick:normal Haha! I came maybe earlier than you. By the way I saw they offer python. Ahaha. Seems easier than Java.',
+		'hide character sidekick normal with fadeOut',
+		'show character p normal with fadeIn',
+		'p:normal Yes. Oh really? So you are really serious in making artworks like snake? Haha!',
+		'hide character p normal with fadeOut',
+		'show character sidekick normal with fadeIn',
+		'sidekick:normal Noob. Hahaha!',
+		'hide character sidekick normal with fadeOut',
+		'show character p normal with fadeIn',
+		'p:normal ahaha ok I got to go now. I just feel bored because Java is so easy. Hehe. See at the Entrance Exam day then.',
+		'hide character p normal with fadeOut',
+		'show character sidekick normal with fadeIn',
+		'sidekick:normal Ok See you. Noob',
+		'hide character sidekick normal with fadeOut',
+		'jump JavaIntroScene2'
+	],
 		
 });
