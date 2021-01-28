@@ -13,13 +13,55 @@ monogatari.action ('message').messages ({
 		title:'Java',
 		subtitle:'Java is a high level, modern programming language designed in the early 1990s by Sun Microsystems, and currently owned by Oracle.',
 		body:`
-			Java is <b>Platdorm Independent</b>, which means that you only need to write the program once to be able to run it on different platforms.
+			Java is <b>Platform Independent</b>, which means that you only need to write the program once to be able to run it on different platforms.
 		 	Java is <b>portable,robust,</b> and <b>dynamic,</b> with the ability to fit the needs of virtually any typesof application.
 			`
 	},
 	'testing':{
-		title:'Test your codes here',
+		title:'Test your codes here throughout the game',
 		body:`<iframe height="400px" width="100%" src="https://repl.it/@jaytinosa/test?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>`
+	},
+	'FirstJavaProgram':{
+		title:'First Java Program',
+		subtitle:'Let us start by creating a simple program that prints "Hello World" to the screen',
+		body:`<iframe height="400px" width="100%" src="https://repl.it/@jaytinosa/test?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>`
+	},
+	'FirstJavaProgram1':{
+		title:'Hello World!',
+		body:`
+		In Java, every line of code that can actually run needs to be inside a <b>class</b><br>
+		In our example, we named the class <b>MyClass</b>. You will learn more about classes in the upcoming modules.<br>
+		In Java, each  application has an entry point, which is a <u>method</u> called <b>main</b><br>
+		Along with main, the keywords <b>public</b> and <b>static</b> will also be explained later.
+		`
+	},
+	'Q1':{
+		body:`Which method is the starting point for all java programs?`
+	},
+	'MainMethod':{
+		title:'The main Method',
+		subtitle:'To run our program, the main method must be identical to this signature:',
+		body:`
+			public static void main(String[]args)<br>
+			public - anyone can access it.<br>
+			static - method can be run without creating an instance of the class containing the main method<br>
+			void - method does not return any value<br>
+			main - the name of the method
+		`
+	},
+	'Q2':{
+		body:`Declare a method called hello()`
+	},
+	'println':{
+		title:'System.out.println()',
+		subtitle:'Next is the body of the main method, enclosed in curly braces:',
+		body:`
+			{<br>
+			System.out.println();<br>
+			}<br>
+			println - prints a line of text to the screen.
+			The System class and its out stream are used to access println
+		`
 	},
 	'Variable': {
 		title: 'Variables',
@@ -770,7 +812,7 @@ monogatari.script ({
 		{'Choice': {
 			'Yes': {
 				'Text': 'Continue the game?',
-				'Do': 'jump sidekickSceneYes'
+				'Do': 'jump FirstJavaProgramScene'
 			},
 			'No': {
 				'Text': 'Repeat the scene?',
@@ -778,8 +820,68 @@ monogatari.script ({
 			}
 		}}
 	],
-	'test':[
-		'End of pattern'
+	'FirstJavaProgramScene':[
+		'show message FirstJavaProgram',
+		{'Choice': {
+			'Yes': {
+				'Text': 'Continue the game?',
+				'Do': 'jump FirstJavaProgramScene1'
+			},
+			'No': {
+				'Text': 'Repeat the scene?',
+				'Do':'jump FirstJavaProgramScene'
+			}
+		}}
+	],
+	'FirstJavaProgramScene1':[
+		'show message FirstJavaProgram1',
+		{'Choice': {
+			'Yes': {
+				'Text': 'Continue the game?',
+				'Do': 'jump Question1'
+			},
+			'No': {
+				'Text': 'Repeat the scene?',
+				'Do':'jump FirstJavaProgramScene'
+			}
+		}}
+	],
+	'Question1':[
+		'show message Q1',
+		{'Choice': {
+			'Main': {
+				'Text': 'Main',
+				'Do': 'jump MainMethodScene'
+			},
+			'static': {
+				'Text': 'static',
+				'Do':'jump Question1'
+			},
+			'public': {
+				'Text': 'public',
+				'Do':'jump Question1'
+			}
+		}}
+	],
+	'MainMethodScene':[
+		'show message MainMethod',
+		'jump Question2'
+	],
+	'Question2':[
+		'show message Q2',
+		{'Choice': {
+			'wrong': {
+				'Text': 'static hello()',
+				'Do': 'jump Question2'
+			},
+			'wrong1': {
+				'Text': 'public hello()',
+				'Do':'jump Question2'
+			},
+			'correct': {
+				'Text': 'void hello()',
+				'Do':'jump Question1'
+			}
+		}}
 	]
-		
 });
