@@ -78,6 +78,8 @@ monogatari.action ('message').messages ({
 			The System class and its out stream are used to access println
 		`
 	},
+
+
 	'Variable': {
 		title: 'Variables',
 		subtitle: '<b>Variables</b> store data for processing. A variable is given a name (or <b>identifier</b>), such as area, age, height, and the like. The name uniquely identifies each variable, assigning a value to the variable retrieving the value stored.',
@@ -619,7 +621,7 @@ monogatari.script ({
 		//'jump StudentSceneYes'
 		//'jump houseScene2'
 		//'jump houseScene3'
-		'jump JavaIntroScene1'
+		'jump BoredomChoiceScene'
 	],
 	'intro':[
 		//Introduction
@@ -888,8 +890,8 @@ monogatari.script ({
 				'Do':'jump Question1'
 			}
 		}}
-		'jump BoredomChoiceScene',
-	]
+	],
+
 	'BoredomChoiceScene':[
 		{'Choice': {
 			'Yes': {
@@ -946,6 +948,6 @@ monogatari.script ({
 		'show character sidekick normal with fadeIn',
 		'sidekick:normal Ok See you. Noob',
 		'hide character sidekick normal with fadeOut',
-		'jump JavaIntroScene2'
+		'jump FirstJavaProgramScenePart2'
 	],
 });
