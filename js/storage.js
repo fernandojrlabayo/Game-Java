@@ -3,6 +3,8 @@
 // Persistent Storage Variable
 monogatari.storage ({
 	player: {
-		name: ''
+		name: '',
+		answer:'System.out.print("Hello World");',
+		useranswer:''
 	}
 });

@@ -9,6 +9,15 @@ monogatari.action ('message').messages ({
 			<p><a href='https://developers.monogatari.io/documentation/'>Documentation</a> - Everything you need to know.</p>
 			<p><a href='https://monogatari.io/demo/'>Demo</a> - A simple Demo.</p>
 		`
+	},
+	'question2':{
+		title: 'Please Complete the code to print Hello World',
+		body: `
+			<p>class Main {</p>
+			<p>&nbsp public static void main(String[]args){</p>
+			<p>&nbsp }</p>
+			<p>}</p>
+		`
 	}
 });
 
@@ -178,7 +187,7 @@ monogatari.characters ({
 monogatari.script ({
 	// The game starts here.
 	'Start': [
-			'show scene school with fadeIn ',
+			'show scene school with fadeIn',
 		{
 			'Input': {
 				'Class': 'myInput someClass otherClass',
@@ -206,13 +215,14 @@ monogatari.script ({
 			}
 			
 		},
-		'jump intro'
+		//'jump intro'
 		//'jump houseScene'
 		//'jump leavingScene'
 		//'jump StudentScene'
 		//'jump houseScene2'
 		//'jump StudentSceneYes'
 		//'jump houseScene2'
+		'jump houseScene3'
 	],
 	'intro':[
 		//Introduction
@@ -405,13 +415,22 @@ monogatari.script ({
 	'houseScene3':[
 		'show scene house with fadeIn',
 		'show character p normal with fadeIn',
-		'p:normal Alright I will start learning Java, Finally I will start realizing my dreams'
+		'p:normal Alright I will start learning Java, Finally I will start realizing my dreams',
 		//game interface background needed
-
+		'jump Question2'
+	],
+	'Question2':[
+		'show message question2',
+		{'Choice': {
+			'Yes': {
+				'Text': 'System.out.print(Hello World);',
+				'Do': 'jump sidekickSceneYes'
+			},
+			'No': {
+				'Text': 'System.out.println(Hello World);',
+				'Do':'jump sidekickSceneNo'
+			}
+		}}
+		
 	]
-
-	
-	
-
-
 });
