@@ -948,6 +948,6 @@ monogatari.script ({
 		'show character sidekick normal with fadeIn',
 		'sidekick:normal Ok See you. Noob',
 		'hide character sidekick normal with fadeOut',
-		'jump FirstJavaProgramScenePart2'
+		'jump FirstJavaProgramScenePart2',
 	],
 });
