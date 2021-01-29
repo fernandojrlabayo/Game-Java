@@ -63,6 +63,26 @@ monogatari.action ('message').messages ({
 			The System class and its out stream are used to access println
 		`
 	},
+	'Q3':{
+		body:`Which method prints text in a Java program?`
+	},
+	'Semicolons':{
+		title:'Semicolons in Java',
+		subtitle:'You can pass a different text as the parameters to the println method to print it.',
+		body:`
+			In Java, each code statementmust end with a semicolon.
+		`
+	},
+	'Q4':{
+		body:`
+			What is missing in this line of code?<br>
+			class Apples{<br>
+				public static void main(String[]args){<br>
+					System.out.println("Hello World!")<br>
+				}<br>
+			}
+		`
+	},
 	'Variable': {
 		title: 'Variables',
 		subtitle: '<b>Variables</b> store data for processing. A variable is given a name (or <b>identifier</b>), such as area, age, height, and the like. The name uniquely identifies each variable, assigning a value to the variable retrieving the value stored.',
@@ -73,17 +93,24 @@ monogatari.action ('message').messages ({
 	'VariableQ': {	
 		body: `
 		<p>Which variable type would you use for a city name?<p>
-		<label for="variable">Choose your answer:</label>
-		<select id="var" name="var">
-			<option value="double">double</option>
-			<option value="string">String</option>
-			<option value="integer">int</option>
-		</select>`
+		`
 	},
 	'Variables2': {
 		title: 'Examples of variable declarations:',
 		body: `
 			class MyClass {<br> public static void main (String[] args){<br>String name = "David";<br>int age = 42;<br>double score = 15.9;<br>char group = 'Z';<br>}<br>}`
+	},
+	'Variables2Q':{
+		title:'What is missing?',
+		body:`
+			class Apples{
+				public static void main(String[]args){<br>
+					String name = "John";<br>
+					age=24;<br>
+					double height = 189.87;<br>
+				}<br>
+			}
+		`
 	},
 	'userInput': {
 		title: 'While Java provides many different methods for getting use input, the <b>Scanner</b> object is the most common, and perharps the easiest to implement. Import the <b>Scanner</b> class to us the <b>Scanner</b> object, as seen here:',
@@ -97,16 +124,16 @@ monogatari.action ('message').messages ({
 	},		
 	'userInputQ1': {
 		title: 'Select the the right answer to get user input.',
-		body: `
+		body:`
 		<label for="variable">import java.util.Scanner;<br>class test {<br><blockquote>public static void main(String[] args){<br></label>
-		<select id="input" name="input">
-			<option value="nextLine">nextLine</option>
+			<select id="input" name="input">
+				<option value="nextLine">nextLine</option>
+				<option value="Scanner">Scanner</option>
+			</select> sc = new Scanner(System.in);<br>
+			String st = sc.<select id="input" name="input">
 			<option value="Scanner">Scanner</option>
-		</select> sc = new Scanner(System.in);<br>
-		String st = sc.<select id="input" name="input">
-		<option value="Scanner">Scanner</option>
-		<option value="nextLine">nextLine</option>
-	</select>();<br>}<br>}
+			<option value="nextLine">nextLine</option>
+		</select>();<br>}<br>}
 		`
 	},
 	'primitiveOps': {
@@ -880,8 +907,114 @@ monogatari.script ({
 			},
 			'correct': {
 				'Text': 'void hello()',
-				'Do':'jump Question1'
+				'Do':'jump printlnScene'
 			}
 		}}
+	],
+	'printlnScene':[
+		'show message println',
+		'jump Question3'
+	],
+	'Question3':[
+		'show message Q3',
+		{'Choice': {
+			'wrong': {
+				'Text': 'System.printText()',
+				'Do': 'jump Question3'
+			},
+			'wrong1': {
+				'Text': 'System.out()',
+				'Do':'jump Question3'
+			},
+			'correct': {
+				'Text': 'System.out.println()',
+				'Do':'jump SemicolonScene'
+			},
+			'wrong2': {
+				'Text': 'out.WriteText()',
+				'Do':'jump Question3'
+			},
+		}}
+	],
+	'SemicolonScene':[
+		'show message Semicolons',
+		'jump Question4'
+	],
+	'Question4':[
+		'show message Q4',
+		{'Choice': {
+			'wrong': {
+				'Text': '""',
+				'Do': 'jump Question4'
+			},
+			'wrong1': {
+				'Text': ',',
+				'Do':'jump Question4'
+			},
+			'wrong2': {
+				'Text': ':',
+				'Do':'jump Question4'
+			},
+			'correct': {
+				'Text': ';',
+				'Do':'jump printlnScene'
+			},
+		}}
+	],
+	'variableScene':[
+		'show message variable'
+	],
+	'Question5':[
+		'show message VariableQ',
+		{'Choice': {
+			'wrong': {
+				'Text': 'var',
+				'Do': 'jump Question5'
+			},
+			'wrong1': {
+				'Text': 'double',
+				'Do':'jump Question5'
+			},
+			'correct': {
+				'Text': 'String',
+				'Do':'jump variableScene2'
+			},
+			'wrong2': {
+				'Text': 'int',
+				'Do':'jump Question5'
+			},
+		}}
+	],
+	'variableScene2':[
+		'show message Variables2',
+		'jump Question6'
+	],
+	'Question6':[
+		'show message Variables2Q',
+		{'Choice': {
+			'wrong': {
+				'Text': 'String',
+				'Do': 'jump Question6'
+			},
+			'correct': {
+				'Text': 'int',
+				'Do':'jump userInputScene'
+			},
+			'wrong1': {
+				'Text': 'char',
+				'Do':'jump Question6'
+			},
+			'wrong2': {
+				'Text': 'main',
+				'Do':'jump Question6'
+			},
+		}}
+	],
+	'userInputScene':[
+		'show message userInput',
+		'jump Question7'
+	],
+	'Question7':[
+		'show message userInputQ1'
 	]
 });
