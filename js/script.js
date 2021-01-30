@@ -437,6 +437,13 @@ monogatari.action ('message').messages ({
 				</select>);
 				`
 		},
+		
+		'UniversityExam': {
+			subtitle: 'Welcome to the Ulaps University Entrance Exam',
+			body: `
+					Game to be continued.........
+				`
+		},
 });
 
 // Define the notifications used in the game
@@ -640,7 +647,7 @@ monogatari.script ({
 			}
 			
 		},
-		'jump intro'
+		// 'jump intro'
 		//'jump houseScene'
 		//'jump leavingScene'
 		//'jump StudentScene'
@@ -650,8 +657,10 @@ monogatari.script ({
 		//'jump houseScene3'
 		// 'jump BoredomChoiceScene'
 		// 'jump userInputScene'
-		// 'jump FirstJavaProgramScene'
+		'jump FirstJavaProgramScene'
 		// 'jump variableScene'
+		// 'jump FirstJavaProgramScenePart2'
+		// 'jump EndReviewscene'
 	],
 	'intro':[
 		//Introduction
@@ -872,6 +881,7 @@ monogatari.script ({
 		}}
 	],
 	'FirstJavaProgramScene1':[
+		'show scene studyroom with fadeIn',
 		'show message FirstJavaProgram1',
 		{'Choice': {
 			'Yes': {
@@ -885,6 +895,7 @@ monogatari.script ({
 		}}
 	],
 	'Question1':[
+		'show scene studyroom with fadeIn',
 		'show message Q1',
 		{'Choice': {
 			'Main': {
@@ -902,10 +913,12 @@ monogatari.script ({
 		}}
 	],
 	'MainMethodScene':[
+		'show scene studyroom with fadeIn',
 		'show message MainMethod',
 		'jump Question2'
 	],
 	'Question2':[
+		'show scene studyroom with fadeIn',
 		'show message Q2',
 		{'Choice': {
 			'wrong': {
@@ -923,10 +936,12 @@ monogatari.script ({
 		}}
 	],
 	'printlnScene':[
+		'show scene studyroom with fadeIn',
 		'show message println',
 		'jump Question3'
 	],
 	'Question3':[
+		'show scene studyroom with fadeIn',
 		'show message testing',
 		'show message Q3',
 		{'Choice': {
@@ -949,10 +964,12 @@ monogatari.script ({
 		}}
 	],
 	'SemicolonScene':[
+		'show scene studyroom with fadeIn',
 		'show message Semicolons',
 		'jump Question4'
 	],
 	'Question4':[
+		'show scene studyroom with fadeIn',
 		'show message Q4',
 		{'Choice': {
 			'wrong': {
@@ -974,10 +991,12 @@ monogatari.script ({
 		}}
 	],
 	'variableScene':[
+		'show scene studyroom with fadeIn',
 		'show message Variable',
 		'jump Question5'
 	],
 	'Question5':[
+		'show scene studyroom with fadeIn',
 		'show message VariableQ',
 		{'Choice': {
 			'wrong': {
@@ -999,10 +1018,12 @@ monogatari.script ({
 		}}
 	],
 	'variableScene2':[
+		'show scene studyroom with fadeIn',
 		'show message Variables2',
 		'jump Question6'
 	],
 	'Question6':[
+		'show scene studyroom with fadeIn',
 		'show message Variables2Q',
 		{'Choice': {
 			'wrong': {
@@ -1024,15 +1045,18 @@ monogatari.script ({
 		}}
 	],
 	'userInputScene':[
+		'show scene studyroom with fadeIn',
 		'show message userInput',
 		'jump Question7'
 	],
 	'Question7':[
+		'show scene studyroom with fadeIn',
 		'show message userInputQ1',
 		'jump BoredomChoiceScene'
 	],
 
 	'BoredomChoiceScene':[
+		'show scene studyroom with fadeIn',
 		{'Choice': {
 			'Yes': {
 				'Text': 'Continue the game?',
@@ -1046,17 +1070,25 @@ monogatari.script ({
 	],
 
 	'FirstJavaProgramScenePart2':[
-		'show message FirstJavaProgram1',
-		{'Choice': {
-			'Yes': {
-				'Text': 'Continue the game?',
-				'Do': 'jump Question1'
-			},
-			'No': {
-				'Text': 'Repeat the scene?',
-				'Do':'jump FirstJavaProgramScene'
-			}
-		}}
+		'show scene studyroom with fadeIn',
+		'show message primitiveOps',
+		'show message primitiveOpsQ',
+		'show message primitiveOps2',
+		'show message primitiveOpsQ2',
+		'show message primitiveOps3',
+		'show message primitiveOpsQ3',
+		'show message primitiveOps4',
+		'show message primitiveOpsQ4',
+		'show message incrDecr',
+		'show message incrDecr1',
+		'show message incrDecrQ1',
+		'show message incrDecr2 ',
+		'show message incrDecrQ2',
+		'show message strings1',
+		'show message stringQ1',
+		'show message strings2',
+		'show message stringQ2',
+		'jump EndReviewscene'
 	],
 
 	'JoeScenePython':[
@@ -1090,5 +1122,37 @@ monogatari.script ({
 		'hide character sidekick normal with fadeOut',
 		'jump FirstJavaProgramScenePart2',
 	],
-	
+	'EndReviewscene':[
+		'show scene studyroom with fadeIn',
+		'show character p normal with fadeIn',
+		'p:normal Haha, At last I am ready to take the exam!',
+		'hide character p normal with fadeOut',
+		'show character mom normal with fadeIn',
+		'mom:normal {{player.name}} What is that smell?',
+		'hide character mom with fadeOut',
+		'show character p normal with fadeIn',
+		'p:normal Haha,Sorry mom I did not take a bath for 3 days to finish reviewing.',
+		'hide character p normal with fadeOut',
+		'show character mom normal with fadeIn',
+		'mom:normal {{player.name}} Really? Oh my God, go to the bathroom and take a bath, you smell stinky!',
+		'hide character mom with fadeOut',
+		'show character p normal with fadeIn',
+		'p:normal Ok mom, tomorrow is the entrance exam wish me luck mom!',
+		'hide character p normal with fadeOut',
+		'show character mom normal with fadeIn',
+		'mom:sad {{player.name}} I know you can make it son, but please take a bath now?',
+		'hide character mom with fadeOut',
+		'show character p normal with fadeIn',
+		'p:normal Ok mom I\'ll take a bath now. Hehe',
+		'hide character p normal with fadeOut',
+		'jump EntranceExamScene'
+		
+	],
+	'EntranceExamScene': [
+		'show scene university with fadeIn',
+		'show message UniversityExam'
+
+
+	]
+
 });
