@@ -647,7 +647,7 @@ monogatari.script ({
 			}
 			
 		},
-		// 'jump intro'
+		'jump intro'
 		//'jump houseScene'
 		//'jump leavingScene'
 		//'jump StudentScene'
@@ -657,7 +657,7 @@ monogatari.script ({
 		//'jump houseScene3'
 		// 'jump BoredomChoiceScene'
 		// 'jump userInputScene'
-		'jump FirstJavaProgramScene'
+		// 'jump FirstJavaProgramScene'
 		// 'jump variableScene'
 		// 'jump FirstJavaProgramScenePart2'
 		// 'jump EndReviewscene'
